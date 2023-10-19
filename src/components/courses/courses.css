@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.Courses{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    /* border: 2px solid red; */
+}
+.courses-title{
+    text-align: center;
+    margin: 20px 0px;
+    color: grey;
+}
+
+@media (max-width: 786px){
+    .courses-title{
+        font-size: 22px;
+    }
+}
+
+

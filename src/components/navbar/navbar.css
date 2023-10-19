@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.Navbar{
+    display: flex;
+    /* width: 100vw; */
+    /* border: 2px solid black; */
+    align-items: center;
+    background-color: rgb(212, 43, 212);
+    padding: 10px;
+    transition: .3s linear all;
+    z-index: 89;
+    position: sticky;
+    top: 0;
+}
+.nav-left{
+    /* border: 2px solid black; */
+    flex: 2;
+    display:flex;
+    align-items: center;
+    gap: 20px;
+}
+.nav-left img{
+    width: 80px;
+    /* border-radius: 50%; */
+    cursor: pointer;
+}
+.nav-left img:hover{
+    transform: scale(1.03);
+}
+.searchbar{
+    display: flex;
+    align-items:center;
+    gap: 10px;
+    border: 2px solid lightgrey;;
+    background-color: white;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+.searchbar input{
+    width: 200px;
+    padding: 4px 10px;
+    outline: none;
+    border: none;
+    color: grey
+}
+.AiOutlineSearch{
+    font-size: 20px;
+    cursor: pointer;
+}
+.nav-mid{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid yellow; */
+    color: white; 
+    justify-content: space-around;
+}
+.navlinks{
+    cursor: pointer;
+}
+.nav-right{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid green; */
+    font-size: 20px;
+    justify-content: space-around;
+
+}
+.profile-pp-box{
+    width: 35px;
+    height: 35px;
+    border: 2px solid lightgrey;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.nav-right span{
+    cursor: pointer;
+    color: white;
+    font-size: 28px;
+    font-weight: 900;
+}
+.AiOutlineBell{
+    position: relative;
+    /* border: 2px solid green; */
+}
+.dot{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+    right: 2px;
+}
+.profile-pp-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.active{
+    /* border-bottom: 2px solid purple; */
+    background-color: white;
+    color: black;
+}
+.active .nav-mid{
+    color: purple;
+}
+.active .nav-right span{
+    color: purple;
+}
+.side-menu{
+    display: none;
+}
+.AiOutlineMenu{
+    display: none;
+}
+
+@media (max-width: 786px){
+    .Navbar{
+    }
+
+    .nav-mid{
+        display: none;
+    }
+
+    .nav-right{
+        display: none;
+    }
+    .searchbar{
+        margin-right: 20px;
+    }
+    .nav-left img{
+        width: 50px;
+    }
+    .AiOutlineMenu{
+        display: block;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+    .side-menu{
+        position: fixed;
+        display: flex;
+        width: 40px;
+        height: 200px;
+        right: 0;
+        width: 200px;
+        /* border: 1px solid green; */
+        flex-direction: column;
+        height: calc(100vh - 58px);
+        z-index: 99;
+        gap: 50px;
+        padding: 0px 20px;
+        background-color: white;
+        transition: .3s ease;
+    }
+    .side-menu span:first-child{
+        margin-top: 40px;
+    }
+    .active .AiOutlineMenu{
+        color: black;
+    }
+}

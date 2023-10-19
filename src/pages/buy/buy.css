@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.buy{
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buy-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 80%;
+    /* border: 2px solid black; */
+}
+.left{
+    flex: 1;
+    /* border: 2px solid yellowgreen; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 40%;
+    border-top-right-radius: 40%;
+    background: linear-gradient(blueviolet,violet);
+    border-bottom-right-radius: 0;
+}
+.left img{
+    width: 80%;
+    border-bottom-left-radius: 40%;
+    border-top-right-radius: 40%;
+}
+.right{
+    flex: 1;
+    height: 100%;
+    /* border: 2px solid orange; */
+    border-bottom-right-radius: 40%;
+    border-top-left-radius: 40%;
+    background: linear-gradient(blueviolet,violet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right-wrapper{
+    width: 80%;
+    background-color: white;
+    height: 90%;
+    border-bottom-right-radius: 40%;
+    border-top-left-radius: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.buy-desc{
+    width: 70%;
+    font-size: 17px;
+    text-align: center;
+}
+.title{
+    margin-bottom: 10px;
+    color: grey;
+}
+.buy-desc p{
+    color: grey;
+    margin-top: 10px;
+}
+.pay{
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 21px;
+    background:transparent;
+    color: green;
+    border: 2px solid violet;
+    outline: none;
+    border-radius: 10px;
+}
+.BOTTOM-DESC{
+    text-align: left;
+    line-height: 30px;
+}
+
+@media (max-width: 786px){
+    .buy h1{
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .title{
+        font-size: 14px;
+        display: none;
+    }
+    .buy-wrapper{
+        flex-direction: column;
+    }
+    .buy-desc{
+        font-size: 12px;
+        line-height: normal;
+    }
+    .buy-desc b:nth-child(1){
+        display: none;
+    }
+    .DESC-LAST{
+        display: none;
+    }
+    .pay{
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 17px;
+        background:transparent;
+        color: green;
+        border: 2px solid violet;
+        outline: none;
+        border-radius: 10px;
+    }
+}
