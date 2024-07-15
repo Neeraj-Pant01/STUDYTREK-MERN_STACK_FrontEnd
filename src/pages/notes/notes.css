@@ -1,0 +1,20 @@
+.notes-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    font-size: 24px;
+    flex-direction: column;
+    color: grey;
+    gap: 40px;
+}
+.back-links{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.b-links-a{
+    font-size: 17px;
+    color: blueviolet;
+    text-decoration: underline;
+}

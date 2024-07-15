@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.freecourse{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.freecourse b{
+    font-size: 21px;
+    text-align: center;
+}
+.eligibility b{
+    font-size: 16px;
+}
+.free-cont{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 100px;
+}
+.free-cont b{
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+.apply{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 100px;
+}
+.eligibility p{
+    color: grey;
+}
+.form-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.form-btn button{
+    padding: 13px 40px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(205, 22, 205);
+    color: white;
+}
+@media screen and (max-width:560px) {
+    .apply{
+        align-items: center;
+        justify-content: center;
+        padding: 0px 20px;
+    }
+    .free-cont{
+        padding: 0px 20px;
+    }
+    .free-cont p{
+        color: grey;
+    }
+}

@@ -1,23 +1,47 @@
 import "./courses.css"
 import Course from '../course/Course'
-import Footer from "../footer/Footer"
+import { useEffect, useState } from "react"
+import { makeApiRequest } from "../../utils/apiRequest"
 
 const Courses = () => {
+  const [err, setErr] = useState(false)
+  const [courses, setCourses] = useState([])
+  
+  const api = makeApiRequest()
+
+  const getAllCourses = async () =>{
+    try{
+      const response = await api.get(`/api/v1/courses/all`)
+      setCourses(response.data)
+    }catch(err){
+      setErr(true)
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    getAllCourses()
+  },[])
+
   return (
     <>
     <h1 className="courses-title">AVAILABLE COURSES</h1>
-    <div className='Courses'>
-      <Course />
-      <Course />
-      <Course />
-      <Course />
-      <Course />
-      <Course />
-      <Course />
-      <Course />
-      <Course />
+    {err ?
+    <div className="err-cont">
+    <span className="err-icon">!</span>
+    Something went wrong !
     </div>
-    <Footer />
+    :
+    <div className='Courses'>
+      {
+        courses.map((c,i)=>{
+          return (
+            <Course c={c} key={i}/>
+          )
+        })
+      }
+    </div>
+}
     </>
   )
 }

@@ -16,10 +16,46 @@
     margin: 20px 0px;
     color: grey;
 }
+.err-cont{
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: grey;
+    height: 500px;
+    flex-direction: column;
+    gap: 20px;
+}
+.err-icon{
+    display: flex;
+    font-size: 160px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+    background-color: rgb(54, 48, 48);
+    border-radius: 50%;
+    animation:anim 10s linear infinite;
+}
 
 @media (max-width: 786px){
     .courses-title{
         font-size: 22px;
+    }
+}
+
+@keyframes anim {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
     }
 }
 

@@ -22,6 +22,7 @@
 }
 .c-name{
     display: flex;
+    text-transform: uppercase;
     align-self: center;
     font-weight: bold;
     color: rgb(22, 21, 21);

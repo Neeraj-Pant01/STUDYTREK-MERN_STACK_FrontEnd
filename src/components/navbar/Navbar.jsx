@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import "./navbar.css"
 import { AiFillCloseSquare, AiOutlineBell, AiOutlineMenu, AiOutlineMessage, AiOutlineSearch } from "react-icons/ai"
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const [active, setActive] = useState(false)
   const { pathname } = useLocation();
   const [openmenu, setOpenMenu] = useState(false)
+
+  const navigate = useNavigate();
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false)
@@ -37,8 +39,12 @@ const Navbar = () => {
             <span className="navlinks">COURSES</span>
           </Link>
           <span className="navlinks">YOUR COURSES</span>
-          <span className="navlinks">About</span>
-          <span className="navlinks">Logout</span>
+          <Link to={`/blogs`}><span className="navlinks">Blogs</span></Link>
+          <span className="navlinks" onClick={()=>{
+            localStorage.clear()
+            window.location.href = "http://localhost:3000/"
+          }
+          }>Logout</span>
         </div>
         <div className="nav-right">
           <span>
@@ -61,8 +67,10 @@ const Navbar = () => {
             <span className="navlinks" onClick={()=>setOpenMenu(false)}>COURSES</span>
           </Link>
           <span className="navlinks">YOUR COURSES</span>
-          <span className="navlinks">About</span>
-          <span className="navlinks">Logout</span>
+          <Link to={`/blogs`}><span className="navlinks" onClick={()=>setOpenMenu(false)}>Blogs</span></Link>
+          <span className="navlinks" onClick={()=>{localStorage.clear()
+            window.location.href = "http://localhost:3000/"
+          }}>Logout</span>
         </div>
       }
     </>
