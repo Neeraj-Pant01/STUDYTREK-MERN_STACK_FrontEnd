@@ -14,18 +14,18 @@ const SingleCourse = () => {
 
   useEffect(()=>{
     window.scrollTo({top:0, behavior:"smooth"})
+    const getSingleCourse = async () =>{
+      try{
+        const response = await axios.get(`${process.env.REACT_APP_URI}api/v1/courses/${id}`)
+        // console.log(response)
+        setCurrentCourse(response.data)
+      }catch(err){
+        console.log(err)
+      }
+    }
     getSingleCourse()
   },[id])
 
-  const getSingleCourse = async () =>{
-    try{
-      const response = await axios.get(`${process.env.REACT_APP_URI}api/v1/courses/${id}`)
-      // console.log(response)
-      setCurrentCourse(response.data)
-    }catch(err){
-      console.log(err)
-    }
-  }
 
   const handleNotes = () =>{
     if(user){

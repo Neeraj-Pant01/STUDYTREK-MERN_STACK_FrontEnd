@@ -9,19 +9,18 @@ const Courses = () => {
   
   const api = makeApiRequest()
 
-  const getAllCourses = async () =>{
-    try{
-      const response = await api.get(`/api/v1/courses/all`)
-      setCourses(response.data)
-    }catch(err){
-      setErr(true)
-      console.log(err)
-    }
-  }
-
   useEffect(()=>{
+    const getAllCourses = async () =>{
+      try{
+        const response = await api.get(`/api/v1/courses/all`)
+        setCourses(response.data)
+      }catch(err){
+        setErr(true)
+        console.log(err)
+      }
+    }
     getAllCourses()
-  },[])
+  },[api])
 
   return (
     <>

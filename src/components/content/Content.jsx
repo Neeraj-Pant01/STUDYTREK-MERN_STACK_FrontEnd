@@ -17,7 +17,7 @@ const Content = () => {
             }
         }
         getRandomCourses()
-    },[])
+    },[api])
 
     return (
         <div className='content'>
