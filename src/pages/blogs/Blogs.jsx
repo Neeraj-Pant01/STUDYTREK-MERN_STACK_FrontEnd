@@ -9,7 +9,7 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([])
   const navigate = useNavigate()
 
-  const token = useSelector((state) => state.user.currentUser.token)
+  const token = useSelector((state) => state.user?.currentUser?.token)
 
   useEffect(()=>{
     const getAllBlogs = async() =>{

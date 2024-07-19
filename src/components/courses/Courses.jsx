@@ -9,7 +9,7 @@ const Courses = () => {
   const [courses, setCourses] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const token = useSelector((state)=>state.user.currentUser.token)
+  const token = useSelector((state)=>state.user?.currentUser?.token)
   
   useEffect(()=>{
     const getAllCourses = async () =>{
