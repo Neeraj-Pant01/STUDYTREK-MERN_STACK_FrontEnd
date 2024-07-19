@@ -87,6 +87,7 @@ const Homepage = () => {
                             login &&
                             <p className="login-link" onClick={()=>setLogin(false)}>don't have an account ? <b>Register ?</b></p>
                         }
+                        <a href='https://studytrek-seller-panel.netlify.app' style={{textDecoration:"underline"}}>Login or Register as Seller</a>
                     </form>
                 }
             </div>

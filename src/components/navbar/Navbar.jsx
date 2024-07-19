@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import "./navbar.css"
 import { AiFillCloseSquare, AiOutlineBell, AiOutlineMenu, AiOutlineMessage, AiOutlineSearch } from "react-icons/ai"
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import {useSelector} from "react-redux"
 
 const Navbar = () => {
   const [active, setActive] = useState(false)
   const { pathname } = useLocation();
   const [openmenu, setOpenMenu] = useState(false)
+  const user = useSelector((state)=>state.user.currentUser)
+
+  const navigate = useNavigate();
 
   // const navigate = useNavigate();
 
@@ -38,13 +42,16 @@ const Navbar = () => {
           <Link to={`/courses`}>
             <span className="navlinks">COURSES</span>
           </Link>
-          <span className="navlinks">YOUR COURSES</span>
+          <div className="navlinks" onClick={()=>navigate('/yourcourse')}>YOUR COURSES</div >
           <Link to={`/blogs`}><span className="navlinks">Blogs</span></Link>
-          <span className="navlinks" onClick={()=>{
-            localStorage.clear()
-            window.location.href = "http://localhost:3000/"
+          {
+            user &&
+            <span className="navlinks" onClick={()=>{
+              localStorage.clear()
+              window.location.href = "http://localhost:3000/"
+            }
+            }>Logout</span>
           }
-          }>Logout</span>
         </div>
         <div className="nav-right">
           <span>

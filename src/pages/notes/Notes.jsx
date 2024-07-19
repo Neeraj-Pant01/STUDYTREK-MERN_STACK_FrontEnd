@@ -8,12 +8,13 @@ const Notes = () => {
   return (
     <div className='notes-wrapper'>
       {
-        location.state.notes ?
-        <div className='lecture-notes'>
-          {
-            location.state.notes
-          }
-          </div>:
+        location.state?.notes ?
+        <div className='wrapper-inter'>
+          <b>INTERVIEW QUESTIONS LINK</b>
+          <img src={location?.state?.picture} alt='' />
+            <a href={`${location.state?.notes}`} target="_blank" rel='noreferrer'>visit notes</a>
+        </div>
+          :
                 <>
                 No Notes Available For this Lecture
                 <div className='back-links'>

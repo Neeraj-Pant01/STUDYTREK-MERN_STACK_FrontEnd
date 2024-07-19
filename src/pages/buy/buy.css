@@ -120,4 +120,10 @@
         outline: none;
         border-radius: 10px;
     }
+    .left{
+        width: 100%;
+    }
+    .right{
+        width: 100%;
+    }
 }

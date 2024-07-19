@@ -9,22 +9,30 @@ const SingleCourse = () => {
   const user = useSelector((state)=>state.user.currentUser)
   const [currentCourse, setCurrentCourse] = useState()
   const navigate = useNavigate()
-
+  const token = user.token;
   const {id} = useParams();
+  const [loading, setLoading] = useState(false)
 
   useEffect(()=>{
     window.scrollTo({top:0, behavior:"smooth"})
     const getSingleCourse = async () =>{
+      setLoading(true)
       try{
-        const response = await axios.get(`${process.env.REACT_APP_URI}api/v1/courses/${id}`)
-        // console.log(response)
+        const response = await axios.get(`${process.env.REACT_APP_URI}api/v1/courses/${id}`,{
+          headers :{
+            "Authorization" : `bearer ${token}`
+          }
+        })
+        console.log("singlecourse",response)
         setCurrentCourse(response.data)
+        setLoading(false)
       }catch(err){
+        setLoading(false)
         console.log(err)
       }
     }
     getSingleCourse()
-  },[id])
+  },[id,token])
 
 
   const handleNotes = () =>{
@@ -39,7 +47,12 @@ const SingleCourse = () => {
     }
   }
   return (
-    <div className="SingleCourse-wrapper">
+    <>
+    {
+      loading ?
+      <div style={{textAlign:"center", marginTop:"40pc"}}>Loading....</div>
+      :
+      <div className="SingleCourse-wrapper">
       <div className="COURSE-OUTCOMES">
         <h1 style={{textTransform:"uppercase"}} className="C-TITLE">{currentCourse?.name}</h1>
         <button className="notes-pdf" onClick={handleNotes}><AiOutlineFilePdf style={{color:"red",fontSize:"24px"}} /> Download Notes</button>
@@ -54,16 +67,20 @@ const SingleCourse = () => {
         <div className="course-option">
           <b>Interview Questions</b>
           <img src="/assets/interview.jpg" alt="" />
-          <Link to={{pathname:user ? `/interview-questions` : '/', state:{currentCourse : currentCourse}}} className="view">View</Link>
+          <div onClick={()=>navigate(user ? '/interview-questions' : '/',{
+            state : currentCourse
+          })} className="view">View</div>
         </div>
         <div className="course-option">
           <b>Video Lectures</b>
           <img src="/assets/lecture.jpg" alt="" />
-          <Link to={{pathname:user ? `/lectures` : '/',state:{currentCourse : currentCourse}}} className="view">View</Link>
+          <div onClick={()=>navigate(user ? '/lectures' : '/',{
+            state : currentCourse || {message:"buy the course to view the video lectures"}
+          })} className="view">View</div>
         </div>
         </div>
         <p className="course-buy">Unlock an array of incredible opportunities and supercharge your skills with our exclusive course. Elevate your potential and gain access to a world of invaluable resources today!</p>
-        <Link to={`/buy/123`}>
+        <Link to={user ? `/buy/${id}` : '/'}>
         <button className="price"><span style={{color:"blueviolet"}}>Buy Premium</span> ₹{currentCourse?.price}/</button>
         </Link>
       </div>
@@ -76,6 +93,8 @@ const SingleCourse = () => {
         </div>
       </div>
     </div>
+    }
+    </>
   )
 }
 

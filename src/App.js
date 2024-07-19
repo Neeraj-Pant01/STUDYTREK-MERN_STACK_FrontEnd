@@ -12,9 +12,12 @@ import Notes from "./pages/notes/Notes";
 import ApplicationForm from "./pages/applicationform/ApplicationForm";
 import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
+import Blog from "./pages/blog/Blog";
+import YourCourses from "./pages/yourCourses/YourCourses";
 
 function App() {
-  const user = useSelector((state)=>state.user.currentUSer)
+  const user = useSelector((state)=>state.user.currentUser)
+  // console.log("user", user)
   return (
     <div className="App">
       <Navbar />
@@ -28,7 +31,9 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/blog/:id" element={<Blog />} />
         <Route path="/applicationform" element={user ?<ApplicationForm  /> : <Navigate to={'/'} />} />
+        <Route path="/yourcourse" element={<YourCourses />} />
       </Routes>
       <Footer />
     </div>

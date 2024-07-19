@@ -1,15 +1,17 @@
 import { useNavigate } from 'react-router-dom'
 import './course.css'
 import { AiOutlineCheck } from "react-icons/ai"
+import { useSelector } from 'react-redux';
 
 const Course = ({ c }) => {
   const navigate = useNavigate();
-  const user = true;
+  const user = useSelector((state)=>state.user.currentUser)
 
   const handleBuy = () => {
     if (user) {
       navigate(`/buy/${c?._id}`)
     } else {
+      navigate('/')
       const targetSection = document.getElementById('form');
       if (targetSection) {
         window.scrollTo({
@@ -29,8 +31,8 @@ const Course = ({ c }) => {
             <b className='COURSE-title'>{c?.desc}</b>
             <ul>
               {
-                c?.features.length > 0 ?
-                  c?.features.map((f, i) => {
+                c?.features ?
+                  c?.features.split(",").map((f, i) => {
                     return (
                       <li key={i}> <AiOutlineCheck style={{ color: "green" }} />{f}</li>
                     )
