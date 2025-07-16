@@ -52,14 +52,4 @@ export const revData = [
         img:"https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-beautiful-child-looking-at-the-sky-image_2967428.jpg",
         username:"md khalid ahsaan"
     },
-    {
-        rev:"The course content was up-to-date and relevant. The instructor was always available to answer questions and provide feedback. Excellent experience!",
-        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBtTVAwbj7h7r4fyy-C-u96dkHE0CSnKARhw&s",
-        username:"sam"
-    },
-    {
-        rev:"I can't believe how much I learned in such a short time. The course was well-organized, and the instructor was very knowledgeable.",
-        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG-5Wi8qZXluHi11q-AHGh8riznXRoltGVYQ&s",
-        username:"tamana carter"
-    }
 ]

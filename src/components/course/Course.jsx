@@ -23,37 +23,37 @@ const Course = ({ c }) => {
   }
 
   return (
-    <div className='course'>
-      <div className="course-wrapper">
-        <sapn className="c-name">{c?.name}</sapn>
-        <div className="course-details">
-          <div className="details">
-            <b className='COURSE-title'>{c?.desc}</b>
-            <ul>
-              {
-                c?.features ?
-                  c?.features.split(",").map((f, i) => {
-                    return (
-                      <li key={i}> <AiOutlineCheck style={{ color: "green" }} />{f}</li>
-                    )
-                  })
-                  :
-                  <>
-                    <li> <AiOutlineCheck style={{ color: "green" }} /> Recorded Lectures</li>
-                    <li><AiOutlineCheck style={{ color: "green" }} /> Notes</li>
-                    <li><AiOutlineCheck style={{ color: "green" }} /> Weakly Test Series</li>
-                    <li><AiOutlineCheck style={{ color: "green" }} /> Most Asked Inteview Questions</li>
-                    <li><AiOutlineCheck style={{ color: "green" }} /> Doubt Clearing Sessions With The Top Experienced Teachers</li>
-                  </>
-              }
-            </ul>
-            <div className="price-button" onClick={handleBuy}>Buy Now at ₹{c?.price}</div>
-          </div>
-          <div className="image">
-            <img src={c.picture ? c?.picture : "/assets/edu1.jpg"} alt="course" />
+    <div className='course-card'>
+      <div className="course-card-inner">
+        <div className="course-image">
+          <img src={c.picture ? c.picture : "/assets/edu1.jpg"} alt="course" />
+        </div>
+
+        <div className="course-content">
+          <h3 className="course-title">{c.name}</h3>
+          <p className="course-desc">{c.desc}</p>
+
+          <ul className="course-features">
+            {
+              c?.features ?
+                c?.features.split(",").map((f, i) => (
+                  <li key={i}><AiOutlineCheck className="check-icon" /> {f}</li>
+                )) :
+                <>
+                  <li><AiOutlineCheck className="check-icon" /> Recorded Lectures</li>
+                  <li><AiOutlineCheck className="check-icon" /> Notes</li>
+                  <li><AiOutlineCheck className="check-icon" /> Weekly Test Series</li>
+                  <li><AiOutlineCheck className="check-icon" /> Interview Questions</li>
+                  <li><AiOutlineCheck className="check-icon" /> Doubt Support</li>
+                </>
+            }
+          </ul>
+
+          <div className="course-footer">
+            <button className="try-btn" onClick={() => navigate(`/course/${c._id}`)}>🎓 Try Free</button>
+            <button className="buy-btn" onClick={handleBuy}>Buy Now @ ₹{c.price}</button>
           </div>
         </div>
-        <button className='trial-btn' onClick={() => navigate(`/course/${c?._id}`)}>Try Free</button>
       </div>
     </div>
   )

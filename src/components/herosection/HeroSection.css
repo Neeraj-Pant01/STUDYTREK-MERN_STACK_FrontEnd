@@ -1,0 +1,134 @@
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  padding: 60px 40px;
+  flex-wrap: wrap;
+  color: #1f1f1f;
+  border-radius: 20px;
+  width: 90%;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.cta-btn {
+  background-color: #7c3aed;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #6d28d9;
+}
+
+.hero-image img {
+  max-width: 480px;
+  width: 100%;
+  height: 400px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.form-modal {
+  background: #fff;
+  padding: 30px 24px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-modal h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7c3aed;
+  margin-bottom: 20px;
+}
+
+.form-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  /* border: 2px solid red; */
+  padding: 4% 3%;
+}
+
+.form-modal input,
+.form-modal select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-modal button {
+  padding: 12px;
+  background: linear-gradient(to right, #c084fc, #7c3aed);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-modal button:hover {
+  background: linear-gradient(to right, #a855f7, #6b21a8);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    justify-content: center;
+    font-size: 32px;
+  }
+
+  .hero-image {
+    margin-bottom: 30px;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+    height: auto;
+  }
+}

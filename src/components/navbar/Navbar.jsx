@@ -1,85 +1,75 @@
 import React, { useEffect, useState } from 'react'
-import "./navbar.css"
-import { AiFillCloseSquare, AiOutlineBell, AiOutlineMenu, AiOutlineMessage, AiOutlineSearch } from "react-icons/ai"
+import './navbar.css'
+import { AiOutlineBell, AiOutlineMenu, AiOutlineSearch, AiOutlineMessage, AiFillCloseSquare } from 'react-icons/ai'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import {useSelector} from "react-redux"
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
   const [active, setActive] = useState(false)
-  const { pathname } = useLocation();
-  const [openmenu, setOpenMenu] = useState(false)
-  const user = useSelector((state)=>state.user.currentUser)
-
-  const navigate = useNavigate();
-
-  // const navigate = useNavigate();
-
-  const isActive = () => {
-    window.scrollY > 0 ? setActive(true) : setActive(false)
-  }
+  const [openMenu, setOpenMenu] = useState(false)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const user = useSelector((state) => state.user.currentUser)
 
   useEffect(() => {
-    window.addEventListener('scroll', isActive)
-
-    return () => {
-      window.removeEventListener('scroll', isActive)
+    const handleScroll = () => {
+      setActive(window.scrollY > 10)
     }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const logout = () => {
+    localStorage.clear()
+    window.location.href = "/"
+  }
 
   return (
     <>
-      <div className={active || pathname !== "/" ? 'Navbar active' : 'Navbar'}>
-        <div className='nav-left'>
-          <Link to='/'><img src="/assets/mainlogo.png" alt="" /></Link>
-          <div className='searchbar'>
-            <input type='text' placeholder='search for a course..'></input>
-            <AiOutlineSearch className='AiOutlineSearch' />
+      <nav className={`Navbar ${active || pathname !== '/' ? 'active' : ''}`}>
+        <div className="nav-left">
+          <Link to="/">
+            <img src="/assets/mainlogo.png" alt="logo" />
+          </Link>
+          <div className="searchbar">
+            <input type="text" placeholder="Search courses..." />
+            <AiOutlineSearch className="icon" />
           </div>
-          {openmenu ? openmenu && <AiFillCloseSquare className='AiOutlineMenu AiFillCloseSquare' onClick={() => setOpenMenu(false)}  /> : <AiOutlineMenu className='AiOutlineMenu' onClick={() => setOpenMenu(!openmenu)} />}
+          {openMenu ? (
+            <AiFillCloseSquare className="hamburger" onClick={() => setOpenMenu(false)} />
+          ) : (
+            <AiOutlineMenu className="hamburger" onClick={() => setOpenMenu(true)} />
+          )}
+        </div>
 
-        </div>
         <div className="nav-mid">
-          <Link to={`/courses`}>
-            <span className="navlinks">COURSES</span>
-          </Link>
-          <div className="navlinks" onClick={()=>navigate('/yourcourse')}>YOUR COURSES</div >
-          <Link to={`/blogs`}><span className="navlinks">Blogs</span></Link>
-          {
-            user &&
-            <span className="navlinks" onClick={()=>{
-              localStorage.clear()
-              window.location.href = "http://localhost:3000/"
-            }
-            }>Logout</span>
-          }
+          <Link to="/courses" className="navlinks">Courses</Link>
+          <span className="navlinks" onClick={() => navigate('/yourcourse')}>Your Courses</span>
+          <Link to="/blogs" className="navlinks">Blogs</Link>
+          {user && <span className="navlinks" onClick={logout}>Logout</span>}
         </div>
+
         <div className="nav-right">
-          <span>
-            <AiOutlineMessage />
-          </span>
-          <span className='AiOutlineBell'>
+          <span><AiOutlineMessage /></span>
+          <span className="AiOutlineBell">
             <AiOutlineBell />
-            <span className='dot'></span>
+            <span className="dot" />
           </span>
-          <div className='profile-pp-box'>
-            <img src='/assets/noavatar.png' alt='pp'></img>
+          <div className="profile-pp-box">
+            <img src="/assets/noavatar.png" alt="avatar" />
           </div>
         </div>
-      </div>
-      {
-        openmenu &&
+      </nav>
+
+      {openMenu && (
         <div className="side-menu">
-          <span>UserName</span>
-          <Link to={`/courses`}>
-            <span className="navlinks" onClick={()=>setOpenMenu(false)}>COURSES</span>
-          </Link>
-          <span className="navlinks">YOUR COURSES</span>
-          <Link to={`/blogs`}><span className="navlinks" onClick={()=>setOpenMenu(false)}>Blogs</span></Link>
-          <span className="navlinks" onClick={()=>{localStorage.clear()
-            window.location.href = "http://localhost:3000/"
-          }}>Logout</span>
+          <span>{user?.username || 'Guest'}</span>
+          <Link to="/courses" className="navlinks" onClick={() => setOpenMenu(false)}>Courses</Link>
+          <span className="navlinks" onClick={() => navigate('/yourcourse')}>Your Courses</span>
+          <Link to="/blogs" className="navlinks" onClick={() => setOpenMenu(false)}>Blogs</Link>
+          {user && <span className="navlinks" onClick={logout}>Logout</span>}
         </div>
-      }
+      )}
     </>
   )
 }
