@@ -13,8 +13,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(120deg, #fdfcfb 0%, #e2d1f9 100%);
-    padding: 40px 20px;
+    /* background: linear-gradient(120deg, #fdfcfb 0%, #e2d1f9 100%); */
+    /* padding: 10px 10px; */
+    /* border: 2px solid red; */
     position: relative;
 }
 

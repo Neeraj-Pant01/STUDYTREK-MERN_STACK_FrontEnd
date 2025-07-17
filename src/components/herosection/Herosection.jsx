@@ -39,7 +39,7 @@ const HeroSection = () => {
     return (
         <div className="hero-section">
             <div className="hero-text">
-                <h1 ><FaRocket  /> Launch Your Learning Journey</h1>
+                <h1 ><FaRocket /> Launch Your Learning Journey</h1>
                 <p>
                     Empower your future with engaging courses, expert guidance, and unlimited opportunities to grow.
                 </p>
