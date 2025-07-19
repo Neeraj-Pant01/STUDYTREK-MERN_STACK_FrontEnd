@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const SingleCourse = () => {
-  const user = useSelector((state) => state.user.currentUser);
+  const user = true
   const [currentCourse, setCurrentCourse] = useState(null);
   const navigate = useNavigate();
   const token = user?.token;
@@ -47,7 +47,7 @@ const SingleCourse = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#e0c3fc] to-[#8ec5fc] text-gray-900">
+    <div className="min-h-screen  text-gray-900">
       {loading ? (
         <div className="flex items-center justify-center min-h-screen">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>

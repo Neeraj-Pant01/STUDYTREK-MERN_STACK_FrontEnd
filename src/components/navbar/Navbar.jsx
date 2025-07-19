@@ -18,16 +18,16 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 w-full z-50 bg-gradient-to-r from-[#e0c3fc] to-[#8ec5fc] shadow-lg">
-      <div className="border border-[red] w-[100%] px-4 py-3 flex items-center justify-between">
+      <div className=" w-[100%] px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src="/assets/mainlogo.png" alt="logo" className="h-12 w-auto transition-transform duration-300 hover:scale-105" />
-          <span className="text-xl text-purple-600 font-bold text-gray-900 hidden md:block">EduTech</span>
+          <span className="text-xl text-purple-600 font-bold hidden md:block">EduTech</span>
         </Link>
 
         {/* Search Bar */}
         <div className="hidden w-[100px] lg:flex flex-1 mx-8 relative group">
-          <div className="flex items-center w-full bg-white rounded-full px-4 py-2 shadow-md transition-all duration-300 group-hover:shadow-lg">
+          <div className="flex items-center bg-white rounded-full px-4 py-2 shadow-md transition-all duration-300 group-hover:shadow-lg">
             <FiSearch className="text-gray-600 mr-2" size={20} />
             <input
               type="text"
@@ -63,7 +63,7 @@ const Navbar = () => {
         </div>
 
         {/* User Actions */}
-        <div className="flex border border-[red] ml-5 items-center gap-4">
+        <div className="flex  ml-5 items-center gap-4">
           <button className="relative text-gray-900 hover:text-blue-600 transition-colors duration-300">
             <FiBell size={22} />
             {user && (
