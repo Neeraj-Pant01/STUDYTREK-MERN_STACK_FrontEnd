@@ -35,7 +35,7 @@ const Freecourse = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="freecourse-section">
+    <section className="freecourse-section ">
       <div className="freecourse-header">
         <h2>Get a <span className="highlight">Free Course</span></h2>
         <p>Empowering Your Education — Accessible, inclusive scholarships designed to help you learn and grow.</p>

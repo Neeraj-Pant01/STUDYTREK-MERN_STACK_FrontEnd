@@ -29,7 +29,7 @@ const TestSeries = () => {
     : [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#e6d1ff] to-[#a3d4ff] py-12">
+    <div className="min-h-screen bg-gradient-to-r from-[#f6f2fa] to-[#dceefe] py-12">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
           Test Series
