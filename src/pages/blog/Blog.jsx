@@ -9,7 +9,7 @@ const Blog = () => {
     const { id } = useParams();
     const [blog, setBlog] = useState()
 
-    const token = useSelector((state) => state.user.currentUser.token)
+    const token = useSelector((state) => state?.user?.currentUser?.token)
 
 
     useEffect(() => {
