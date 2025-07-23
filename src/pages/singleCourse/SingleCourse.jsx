@@ -13,14 +13,36 @@ const SingleCourse = () => {
 
   // Dummy data since API is not working
   const dummyCourse = {
-    name: "Java Programming Masterclass",
-    price: 499,
-    image: "/assets/edu1.jpg",
-    description: "Master Java programming with hands-on projects, expert-led video lectures, and comprehensive resources. Perfect for beginners and advanced learners alike!"
+    _id: 'course123',
+    name: 'Mastering React with Hooks',
+    picture: 'https://thumbs.dreamstime.com/b/demo-text-businessman-dark-vintage-background-108609906.jpg',
+    videoLectures: [
+      {
+        id: 1,
+        title: 'Lecture 1: Introduction to React',
+        description: 'Learn the fundamentals of React, including components, props, and state management.',
+        duration: '25 mins',
+        thumbnail: 'https://thumbs.dreamstime.com/z/let-s-do-concept-let-s-do-hand-business-let-s-do-concept-let-s-do-hand-business-145406000.jpg',
+      },
+      {
+        id: 2,
+        title: 'Lecture 2: Advanced Hooks',
+        description: 'Dive into React hooks like useEffect, useContext, and custom hooks.',
+        duration: '30 mins',
+        thumbnail: 'https://thumbs.dreamstime.com/z/let-s-do-concept-let-s-do-hand-business-let-s-do-concept-let-s-do-hand-business-145406000.jpg',
+      },
+      {
+        id: 3,
+        title: 'Lecture 3: State Management',
+        description: 'Explore state management techniques using Redux and Context API.',
+        duration: '35 mins',
+        thumbnail: 'https://thumbs.dreamstime.com/z/let-s-do-concept-let-s-do-hand-business-let-s-do-concept-let-s-do-hand-business-145406000.jpg',
+      },
+    ],
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo(0,0);
     // Simulate API call with dummy data
     const getSingleCourse = async () => {
       setLoading(true);
@@ -57,7 +79,7 @@ const SingleCourse = () => {
           {/* Course Header */}
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-1/2">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-600">
                 {currentCourse?.name}
               </h1>
               <p className="text-gray-700 text-lg mb-6">{currentCourse?.description}</p>
@@ -154,35 +176,37 @@ const SingleCourse = () => {
                 <div
                   onClick={() =>
                     navigate(user ? "/lectures" : "/", {
-                      state:
-                        currentCourse || {
-                          message: "Buy the course to view the video lectures",
-                        },
+                      state:{
+                      videoLectures: dummyCourse.videoLectures,
+                      picture: dummyCourse.picture,
+                      _id: dummyCourse._id,
+                    }
                     })
                   }
-                  className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 cursor-pointer"
+                className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 cursor-pointer"
                 >
-                  Watch Now
-                </div>
+                Watch Now
               </div>
             </div>
           </div>
+        </div>
 
           {/* Call to Action */}
-          <div className="mt-12 text-center">
-            <p className="text-xl text-gray-700 mb-6">
-              Unlock incredible opportunities and supercharge your skills with our exclusive course!
-            </p>
-            <Link
-              to={user ? `/buy/${id}` : "/"}
-              className="inline-block bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition duration-300"
-            >
-              Get Started Now
-            </Link>
-          </div>
-        </div>
-      )}
+      <div className="mt-12 text-center">
+        <p className="text-xl text-gray-700 mb-6">
+          Unlock incredible opportunities and supercharge your skills with our exclusive course!
+        </p>
+        <Link
+          to={user ? `/buy/${id}` : "/"}
+          className="inline-block bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition duration-300"
+        >
+          Get Started Now
+        </Link>
+      </div>
     </div>
+  )
+}
+    </div >
   );
 };
 

@@ -15,19 +15,19 @@ const Blogs = () => {
       _id: '1',
       title: 'Mastering JavaScript in 2025',
       desc: 'Explore the latest JavaScript features and best practices to build modern web applications.',
-      picture: '',
+      picture: 'https://media.istockphoto.com/id/615422436/photo/demo-sign-cubes.jpg?s=612x612&w=0&k=20&c=HHOLIiF8SmbIssxKv3G480EgTVub_v9cc1QME3Dn6XU=',
     },
     {
       _id: '2',
       title: 'Top 10 Tips for Acing Coding Interviews',
       desc: 'Learn expert strategies to prepare for technical interviews and land your dream job.',
-      picture: '',
+      picture: 'https://media.istockphoto.com/id/615422436/photo/demo-sign-cubes.jpg?s=612x612&w=0&k=20&c=HHOLIiF8SmbIssxKv3G480EgTVub_v9cc1QME3Dn6XU=',
     },
     {
       _id: '3',
       title: 'Why Learn Python for Data Science?',
       desc: 'Discover why Python is the go-to language for data science and how to get started.',
-      picture: '',
+      picture: 'https://media.istockphoto.com/id/615422436/photo/demo-sign-cubes.jpg?s=612x612&w=0&k=20&c=HHOLIiF8SmbIssxKv3G480EgTVub_v9cc1QME3Dn6XU=',
     },
   ];
 

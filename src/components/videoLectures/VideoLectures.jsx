@@ -1,21 +1,58 @@
 import { Link, useLocation } from 'react-router-dom';
 import { FiAlertCircle, FiArrowLeft, FiBookOpen, FiVideo } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
+import VideoPlayer from '../VideoPlayer';
 
 const VideoLectures = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   // Simulate loading for video lectures data
   useEffect(() => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
-  // Sample video lectures data if provided in location.state
+  // Handle Watch Now click to open popup
+  const handleWatchNow = (video) => {
+    setSelectedVideo(video);
+  };
+
+  // Close the video player
+  const handleCloseVideo = () => {
+    setSelectedVideo(null);
+  };
+
+  // Dummy video lectures data
+  const dummyVideoLectures = [
+    {
+      id: 1,
+      title: 'Lecture 1: Introduction to React',
+      description: 'Learn the fundamentals of React, including components, props, and state management.',
+      duration: '25 mins',
+      thumbnail: 'https://via.placeholder.com/300x200?text=React+Lecture+1',
+    },
+    {
+      id: 2,
+      title: 'Lecture 2: Advanced Hooks',
+      description: 'Dive into React hooks like useEffect, useContext, and custom hooks for efficient coding.',
+      duration: '30 mins',
+      thumbnail: 'https://via.placeholder.com/300x200?text=React+Lecture+2',
+    },
+    {
+      id: 3,
+      title: 'Lecture 3: State Management',
+      description: 'Explore state management techniques using Redux and Context API.',
+      duration: '35 mins',
+      thumbnail: 'https://via.placeholder.com/300x200?text=React+Lecture+3',
+    },
+  ];
+
+  // Use dummy data for now, fallback to location.state.videoLectures if available
   const videoLectures = location.state?.videoLectures
     ? typeof location.state.videoLectures === 'string'
       ? location.state.videoLectures.split(', ').map((video, index) => ({
@@ -26,12 +63,12 @@ const VideoLectures = () => {
           thumbnail: location.state?.picture || 'https://via.placeholder.com/300x200?text=Video+Lecture',
         }))
       : location.state.videoLectures
-    : [];
+    : dummyVideoLectures;
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#f6f2fa] to-[#dceefe] py-12">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-600">
           Video Lectures
         </h1>
 
@@ -72,7 +109,7 @@ const VideoLectures = () => {
                       <span className="font-medium">Duration:</span> {video.duration}
                     </p>
                   </div>
-                  <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition duration-300">
+                  <button onClick={() => handleWatchNow(video)}className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition duration-300">
                     Watch Now
                   </button>
                 </div>
@@ -104,6 +141,16 @@ const VideoLectures = () => {
             </div>
           </div>
         )}
+
+        {
+          selectedVideo && (
+            <VideoPlayer
+              videoUrl={"https://drive.google.com/file/d/1ytrANsmzM-PbGjj3zqbyOq84w-gK3CNY/preview"}
+              title="Video Lecture"
+              onClose={handleCloseVideo}
+              />
+          )
+        }
       </div>
     </div>
   );
