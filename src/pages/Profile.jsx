@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FiUser, FiMail, FiBookOpen, FiLogOut, FiEdit, FiAlertCircle } from 'react-feather';
+import { FiUser, FiMail, FiBookOpen, FiLogOut, FiEdit, FiAlertCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
