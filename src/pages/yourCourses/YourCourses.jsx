@@ -23,7 +23,7 @@ const YourCourses = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#f6f2fa] to-[#dceefe] py-12">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-600">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-5 text-gray-600">
           Your Courses
         </h1>
 

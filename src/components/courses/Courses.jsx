@@ -71,9 +71,9 @@ const Courses = () => {
   }, [token]);
 
   return (
-    <div className="min-h-screen py-12">
+    <div className="min-h-screen bg-gradient-to-r from-[#f6f2fa] to-[#dceefe] py-12">
       <div className=" mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+        <h1 className="text-4xl md:text-5xl font-bold text-center  text-gray-600">
           Explore Our Courses
         </h1>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FiUser, FiMail, FiBookOpen, FiLogOut, FiEdit, FiAlertCircle } from 'react-icons/fi';
+import { FiMail, FiBookOpen, FiLogOut, FiEdit, FiAlertCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
@@ -41,9 +41,9 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#e6d1ff] to-[#a3d4ff] py-12">
+    <div className="min-h-screen bg-gradient-to-r from-[#f6f2fa] to-[#dceefe] py-12">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-5 text-gray-600">
           Your Profile
         </h1>
 
