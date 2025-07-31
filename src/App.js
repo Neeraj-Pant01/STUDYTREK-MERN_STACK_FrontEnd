@@ -18,7 +18,8 @@ import Profile from "./pages/Profile";
 import SearchResults from "./pages/SearchResult";
 
 function App() {
-  const user = useSelector((state)=>state.user.currentUser)
+  // const user = useSelector((state)=>state.user.currentUser)
+  const user = true
   // console.log("user", user)
   return (
     <div className="App">

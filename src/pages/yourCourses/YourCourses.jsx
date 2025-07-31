@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FiAlertCircle, FiArrowLeft, FiBookOpen, FiLogIn } from 'react-icons/fi';
 import YourCourse from '../../components/YourCourse/YourCourse';
+import CustomLoader from '../../components/CustomLoader';
 
 const YourCourses = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -11,7 +12,7 @@ const YourCourses = () => {
 
   // Simulate loading and course check
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
     const timer = setTimeout(() => {
       setLoading(false);
       // Simulate checking if user has courses (replace with actual API check)
@@ -28,15 +29,8 @@ const YourCourses = () => {
         </h1>
 
         {loading ? (
-          <div className="flex items-center justify-center min-h-[50vh]">
-            <div className="flex flex-col items-center gap-4">
-              <div className="relative">
-                <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-                <div className="absolute inset-0 animate-pulse rounded-full h-16 w-16 bg-gradient-to-r from-[#f1bb65] to-[#f2884a] opacity-30"></div>
-              </div>
-              <p className="text-gray-900 text-lg font-medium">Loading Your Courses...</p>
-            </div>
-          </div>
+          <CustomLoader loading='Loading Your Courses...' />
+
         ) : user ? (
           hasCourses ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

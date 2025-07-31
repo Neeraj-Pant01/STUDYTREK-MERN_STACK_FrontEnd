@@ -1,6 +1,7 @@
 import { useLocation, Link } from 'react-router-dom';
 import { FiAlertCircle, FiArrowLeft, FiBookOpen, FiExternalLink } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
+import CustomLoader from '../CustomLoader';
 
 const InterviewQues = () => {
   const location = useLocation();
@@ -8,7 +9,7 @@ const InterviewQues = () => {
 
   // Simulate loading for interview questions data
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
@@ -23,15 +24,8 @@ const InterviewQues = () => {
         </h1>
 
         {loading ? (
-          <div className="flex items-center justify-center min-h-[50vh]">
-            <div className="flex flex-col items-center gap-4">
-              <div className="relative">
-                <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-                <div className="absolute inset-0 animate-pulse rounded-full h-16 w-16 bg-gradient-to-r from-[#f1bb65] to-[#f2884a] opacity-30"></div>
-              </div>
-              <p className="text-gray-900 text-lg font-medium">Loading Interview Questions...</p>
-            </div>
-          </div>
+          <CustomLoader loading='Loading Interview Questions...' />
+
         ) : location.state?.interviewQuestions ? (
           <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
             <img

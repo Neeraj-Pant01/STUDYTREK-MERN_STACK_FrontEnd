@@ -1,6 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { AiOutlineFilePdf } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import CustomLoader from "../../components/CustomLoader";
 // import { useSelector } from "react-redux";
 
 const SingleCourse = () => {
@@ -71,9 +72,7 @@ const SingleCourse = () => {
   return (
     <div className="min-h-screen  text-gray-900">
       {loading ? (
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-        </div>
+        <CustomLoader />
       ) : (
         <div className="container mx-auto px-4 py-12">
           {/* Course Header */}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FiMail, FiBookOpen, FiLogOut, FiEdit, FiAlertCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import CustomLoader from '../components/CustomLoader';
 
 const Profile = () => {
   const [loading, setLoading] = useState(true);
@@ -48,15 +49,8 @@ const Profile = () => {
         </h1>
 
         {loading ? (
-          <div className="flex items-center justify-center min-h-[50vh]">
-            <div className="flex flex-col items-center gap-4">
-              <div className="relative">
-                <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-                <div className="absolute inset-0 animate-pulse rounded-full h-16 w-16 bg-gradient-to-r from-[#f1bb65] to-[#f2884a] opacity-30"></div>
-              </div>
-              <p className="text-gray-900 text-lg font-medium">Loading Profile...</p>
-            </div>
-          </div>
+          <CustomLoader loading='Loading Profile...' />
+
         ) : (
           <div className="max-w-4xl mx-auto">
             {/* User Info Section */}

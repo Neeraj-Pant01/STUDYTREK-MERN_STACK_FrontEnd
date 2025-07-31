@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { FiAlertCircle, FiArrowLeft, FiBookOpen, FiVideo } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 import VideoPlayer from '../VideoPlayer';
+import CustomLoader from '../CustomLoader';
 
 const VideoLectures = () => {
   const location = useLocation();
@@ -56,12 +57,12 @@ const VideoLectures = () => {
   const videoLectures = location.state?.videoLectures
     ? typeof location.state.videoLectures === 'string'
       ? location.state.videoLectures.split(', ').map((video, index) => ({
-          id: index + 1,
-          title: `Lecture ${index + 1}: ${video}`,
-          description: `Learn key concepts in lecture ${index + 1} of this course.`,
-          duration: `${20 + index * 5} mins`,
-          thumbnail: location.state?.picture || 'https://via.placeholder.com/300x200?text=Video+Lecture',
-        }))
+        id: index + 1,
+        title: `Lecture ${index + 1}: ${video}`,
+        description: `Learn key concepts in lecture ${index + 1} of this course.`,
+        duration: `${20 + index * 5} mins`,
+        thumbnail: location.state?.picture || 'https://via.placeholder.com/300x200?text=Video+Lecture',
+      }))
       : location.state.videoLectures
     : dummyVideoLectures;
 
@@ -73,15 +74,8 @@ const VideoLectures = () => {
         </h1>
 
         {loading ? (
-          <div className="flex items-center justify-center min-h-[50vh]">
-            <div className="flex flex-col items-center gap-4">
-              <div className="relative h-fit w-fit">
-                <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-                <div className="absolute inset-0 animate-pulse rounded-full h-16 w-16 bg-gradient-to-r from-[#f1bb65] to-[#f2884a] opacity-30"></div>
-              </div>
-              <p className="text-gray-900 text-lg font-medium">Loading Video Lectures...</p>
-            </div>
-          </div>
+          <CustomLoader loading='Loading Video Lectures...' />
+
         ) : videoLectures.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {videoLectures.map((video) => (
@@ -109,7 +103,7 @@ const VideoLectures = () => {
                       <span className="font-medium">Duration:</span> {video.duration}
                     </p>
                   </div>
-                  <button onClick={() => handleWatchNow(video)}className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition duration-300">
+                  <button onClick={() => handleWatchNow(video)} className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition duration-300">
                     Watch Now
                   </button>
                 </div>
@@ -148,7 +142,7 @@ const VideoLectures = () => {
               videoUrl={"https://drive.google.com/file/d/1ytrANsmzM-PbGjj3zqbyOq84w-gK3CNY/preview"}
               title="Video Lecture"
               onClose={handleCloseVideo}
-              />
+            />
           )
         }
       </div>
