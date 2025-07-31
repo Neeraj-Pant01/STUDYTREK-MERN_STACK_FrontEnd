@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './HeroSection.css';
-import { FaUserGraduate, FaRocket } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
-import { AiFillCloseSquare } from 'react-icons/ai';
-import CustomAlert from '../customAlert/CustomAlert';
+import {FaRocket } from 'react-icons/fa';
 import AuthModel from './AuthModel';
 
 const HeroSection = () => {

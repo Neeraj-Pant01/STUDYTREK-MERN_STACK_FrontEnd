@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { FiSearch, FiBell, FiMessageSquare, FiMenu, FiX, FiLogOut, FiBookOpen, FiUser } from 'react-icons/fi';
+import { FiSearch, FiBell, FiMessageSquare, FiMenu, FiX, FiLogOut, FiUser } from 'react-icons/fi';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
