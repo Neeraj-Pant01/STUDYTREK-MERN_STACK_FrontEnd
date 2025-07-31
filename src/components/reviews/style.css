@@ -1,99 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-thin {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-.reviews {
-  margin: 60px auto 40px;
-  max-width: 1200px;
-  padding: 0 20px;
-  text-align: center;
+.scrollbar-thin::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
-.r-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #5a2a83; /* deep purple */
-  letter-spacing: 2px;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 3px rgba(90, 42, 131, 0.4);
-  margin-bottom: 20px;
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+  display: none;
 }
 
-.rev-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  justify-items: center;
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 4px;
 }
 
-.review {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(90, 42, 131, 0.15);
-  padding: 25px 30px;
-  max-width: 380px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
-}
-
-.review:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(90, 42, 131, 0.3);
-}
-
-.rev-top {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-.rev-top img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(90, 42, 131, 0.3);
-  border: 3px solid #5a2a83;
-}
-
-.rev-left b {
-  font-size: 1.2rem;
-  color: #3a0ca3; /* a nice vibrant purple */
-  letter-spacing: 0.5px;
-  user-select: none;
-}
-
-.review p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.5;
-  font-style: italic;
-  user-select: text;
-  margin-top: 0;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 600px) {
-  .r-title {
-    font-size: 2rem;
-  }
-
-  .review {
-    max-width: 100%;
-    padding: 20px 25px;
-  }
-
-  .rev-top img {
-    width: 50px;
-    height: 50px;
-  }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
 }

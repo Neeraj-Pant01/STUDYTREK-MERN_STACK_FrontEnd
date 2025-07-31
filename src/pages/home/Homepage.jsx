@@ -62,7 +62,7 @@ const Homepage = () => {
             <Banners />
             <Reviews />
             <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-600">
+                <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-600 mt-5">
                     Top Courses
                 </h1>
                 <div className="grid md:grid-cols-3 grid-cols-2">

@@ -64,15 +64,9 @@
 
 
 import { useState } from 'react';
-import { FiX, FiMaximize, FiMinimize } from 'react-icons/fi';
+import { FiX } from 'react-icons/fi';
 
 const VideoPlayer = ({ videoUrl, title, onClose }) => {
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
-
-  // Toggle between small and large screen modes
-  const toggleScreenSize = () => {
-    setIsLargeScreen((prev) => !prev);
-  };
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">

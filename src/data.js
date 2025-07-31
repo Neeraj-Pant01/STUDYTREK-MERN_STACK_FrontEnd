@@ -22,34 +22,52 @@ export const sliderData = [
 ]
 
 export const revData = [
+  {
+    username: 'Sarah Johnson',
+    img: 'https://via.placeholder.com/150?text=Sarah',
+    rev: 'This platform transformed my coding skills! The React course was clear, engaging, and packed with practical examples.',
+    rating: 5,
+  },
+  {
+    username: 'Michael Chen',
+    img: 'https://via.placeholder.com/150?text=Michael',
+    rev: 'The video lectures are top-notch. I learned DSA concepts quickly and applied them in real projects.',
+    rating: 4,
+  },
+  {
+    username: 'Emily Davis',
+    img: 'https://via.placeholder.com/150?text=Emily',
+    rev: 'Amazing community and resources! The courses are well-structured, but I wish there were more quizzes.',
+    rating: 4,
+  },
+  {
+    username: 'James Patel',
+    img: 'https://via.placeholder.com/150?text=James',
+    rev: 'The best learning platform I’ve used. The instructors are knowledgeable, and the content is up-to-date.',
+    rating: 5,
+  },
     {
-        rev: "This course was a game-changer for me. The instructor explained complex topics in such an easy-to-understand manner. I now feel confident in my skills",
-        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG-5Wi8qZXluHi11q-AHGh8riznXRoltGVYQ&s",
-        username:"jessica"
-    },
-    {
-        rev:"I loved the interactive elements of the course. The quizzes and assignments really helped reinforce my learning. Highly recommended!",
-        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-gNzeUe5yxVwVjd9Nllpejb4EAOFMFG38Q&s",
-        username:"john"
-    },
-    {
-        rev:"I was skeptical at first, but this course exceeded my expectations. The real-world examples and practical exercises were incredibly valuable",
-        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUDhtNNoGLRAesRb1JKubmhNiuMPSGWu2o4Q&s",
-        username:"harshit"
-    },
-    {
-        rev:"The course content was well-structured and comprehensive. I appreciated the instructor's clear and concise explanations. Worth every penny!",
-        img:"https://m.media-amazon.com/images/M/MV5BNzMwNDAyMzktNjUwYy00MzMyLTkyNWQtMzdjNjQ0ZGEzZmRkXkEyXkFqcGdeQXVyODQyNTAwMzI@._V1_.jpg",
-        username:"gurjeet singh"
-    },
-    {
-        rev:"Fantastic course! The pacing was perfect, and the support from the instructor and community was amazing. I've already signed up for another course",
-        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG-5Wi8qZXluHi11q-AHGh8riznXRoltGVYQ&s",
-        username:"abhishek"
-    },
-    {
-        rev:"This course provided exactly what I needed. The video lectures were engaging, and the downloadable resources were a great bonus.",
-        img:"https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-beautiful-child-looking-at-the-sky-image_2967428.jpg",
-        username:"md khalid ahsaan"
-    },
-]
+    username: 'Sarah Johnson',
+    img: 'https://via.placeholder.com/150?text=Sarah',
+    rev: 'This platform transformed my coding skills! The React course was clear, engaging, and packed with practical examples.',
+    rating: 5,
+  },
+  {
+    username: 'Michael Chen',
+    img: 'https://via.placeholder.com/150?text=Michael',
+    rev: 'The video lectures are top-notch. I learned DSA concepts quickly and applied them in real projects.',
+    rating: 4,
+  },
+  {
+    username: 'Emily Davis',
+    img: 'https://via.placeholder.com/150?text=Emily',
+    rev: 'Amazing community and resources! The courses are well-structured, but I wish there were more quizzes.',
+    rating: 4,
+  },
+  {
+    username: 'James Patel',
+    img: 'https://via.placeholder.com/150?text=James',
+    rev: 'The best learning platform I’ve used. The instructors are knowledgeable, and the content is up-to-date.',
+    rating: 5,
+  },
+];

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { makeApiRequest } from '../../utils/apiRequest';
 import { FiAlertCircle } from 'react-icons/fi';
