@@ -13,10 +13,10 @@ const Footer = () => {
       <div className="footer-section social">
         <h3>🌐 Follow Us</h3>
         <div className="icons">
-          <a href="#"><AiFillLinkedin title="LinkedIn" /></a>
-          <a href="#"><AiOutlineTwitter title="Twitter" /></a>
-          <a href="#"><AiFillFacebook title="Facebook" /></a>
-          <a href="#"><AiFillInstagram title="Instagram" /></a>
+          <a href="/test"><AiFillLinkedin title="LinkedIn" /></a>
+          <a href="/test"><AiOutlineTwitter title="Twitter" /></a>
+          <a href="/test"><AiFillFacebook title="Facebook" /></a>
+          <a href="/test"><AiFillInstagram title="Instagram" /></a>
         </div>
       </div>
 

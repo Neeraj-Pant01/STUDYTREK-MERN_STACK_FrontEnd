@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { makeApiRequest } from '../../utils/apiRequest';
+// import { makeApiRequest } from '../../utils/apiRequest';
 import { FiAlertCircle } from 'react-icons/fi';
 import Course from '../course/Course';
 // import Course from '../course/Course';
@@ -56,7 +56,7 @@ const Courses = () => {
   useEffect(() => {
     const getAllCourses = async () => {
       setLoading(true);
-      const api = makeApiRequest(token);
+      // const api = makeApiRequest(token);
       try {
         // const response = await api.get(`/api/v1/courses/all`);
         setCourses(dummyCourses);
