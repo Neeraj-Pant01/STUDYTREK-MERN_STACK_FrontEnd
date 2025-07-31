@@ -16,19 +16,23 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const handleSearch = () =>{
+    navigate('/search')
+  }
+
   return (
     <nav className="sticky top-0 w-full z-50 bg-gradient-to-r from-[#e0c3fc] to-[#8ec5fc] shadow-lg">
       <div className=" w-[100%] px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <img src="/assets/mainlogo.png" alt="logo" className="h-12 w-auto transition-transform duration-300 hover:scale-105" />
+          <img src="/assets/mainlogo.png" alt="logo" className="md:h-12 w-auto h-7 transition-transform duration-300 hover:scale-105" />
           <span className="text-xl text-purple-600 font-bold hidden md:block">EduTech</span>
         </Link>
 
         {/* Search Bar */}
-        <div className="hidden w-[100px] lg:flex flex-1 mx-8 relative group">
+        <div className="w-[100px] lg:flex flex-1 mx-8 relative group">
           <div className="flex items-center bg-white rounded-full px-4 py-2 shadow-md transition-all duration-300 group-hover:shadow-lg">
-            <FiSearch className="text-gray-600 mr-2" size={20} />
+            <FiSearch onClick={handleSearch} className="text-gray-600 mr-2" size={20} />
             <input
               type="text"
               placeholder="Search courses..."
@@ -74,13 +78,13 @@ const Navbar = () => {
             <FiMessageSquare size={22} />
           </button>
           <div className="relative group">
-            <button className="flex items-center gap-2">
+            {/* <button className="flex items-center gap-2">
               <img
                 src={user?.avatar || '/assets/noavatar.png'}
                 alt="avatar"
-                className="h-10 w-10 rounded-full object-cover border-2 border-gradient-to-br from-[#f1bb65] to-[#f2884a] transition-transform duration-300 group-hover:scale-105"
+                className="md:h-10 md:w-10 h-7 w-7 rounded-full object-cover border-2 border-gradient-to-br from-[#f1bb65] to-[#f2884a] transition-transform duration-300 group-hover:scale-105"
               />
-            </button>
+            </button> */}
             {/* Dropdown Menu */}
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300">
               <div className="py-2">

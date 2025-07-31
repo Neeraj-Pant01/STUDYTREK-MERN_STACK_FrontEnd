@@ -75,7 +75,7 @@ const VideoLectures = () => {
         {loading ? (
           <div className="flex items-center justify-center min-h-[50vh]">
             <div className="flex flex-col items-center gap-4">
-              <div className="relative">
+              <div className="relative h-fit w-fit">
                 <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
                 <div className="absolute inset-0 animate-pulse rounded-full h-16 w-16 bg-gradient-to-r from-[#f1bb65] to-[#f2884a] opacity-30"></div>
               </div>

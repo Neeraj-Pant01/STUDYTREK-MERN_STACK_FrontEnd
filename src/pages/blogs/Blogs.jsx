@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FiAlertCircle, FiBookOpen, FiArrowRight } from 'react-icons/fi';
+import CustomLoader from '../../components/CustomLoader';
 
 const Blogs = () => {
   const [loading, setLoading] = useState(true);
@@ -57,15 +58,7 @@ const Blogs = () => {
         </h1>
 
         {loading ? (
-          <div className="flex items-center justify-center min-h-[50vh]">
-            <div className="flex flex-col items-center gap-4">
-              <div className="relative">
-                <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-                <div className="absolute inset-0 animate-pulse rounded-full h-16 w-16 bg-gradient-to-r from-[#f1bb65] to-[#f2884a] opacity-30"></div>
-              </div>
-              <p className="text-gray-900 text-lg font-medium">Loading Blogs...</p>
-            </div>
-          </div>
+          <CustomLoader loading='Loading blogs...' />
         ) : blogs.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogs.map((blog) => (
@@ -84,7 +77,7 @@ const Blogs = () => {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                  <h2 className="font-semibold text-gray-900 mb-2">
                     {blog.title}
                   </h2>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">{blog.desc}</p>

@@ -3,6 +3,7 @@ import Course from "../course/Course"
 import "./content.css"
 import { useSelector } from "react-redux"
 import { FaChalkboardTeacher, FaVideo, FaUserGraduate } from 'react-icons/fa';
+import CustomLoader from "../CustomLoader";
 
 const dummyCourses = [
     {
@@ -77,7 +78,11 @@ const Content = () => {
             <div className="avail-courses">
                 {
                     loading
-                        ? <div className="loading-text">Loading courses, please wait...</div>
+                        ?
+                        <div className=" h-fit flex flex-col w-[100vw] items-center justify-center">
+                            <CustomLoader />
+                            <div className="loading-text">Loading courses, pleas wait...</div>
+                            </div>
                         : courses.map((c, i) => <Course key={c._id || i} c={c} />)
                 }
             </div>

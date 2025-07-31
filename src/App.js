@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import Blog from "./pages/blog/Blog";
 import YourCourses from "./pages/yourCourses/YourCourses";
 import Profile from "./pages/Profile";
+import SearchResults from "./pages/SearchResult";
 
 function App() {
   const user = useSelector((state)=>state.user.currentUser)
@@ -36,6 +37,7 @@ function App() {
         <Route path="/blog/:id" element={<Blog />} />
         <Route path="/applicationform" element={user ?<ApplicationForm  /> : <Navigate to={'/'} />} />
         <Route path="/yourcourse" element={<YourCourses />} />
+        <Route path="/search" element={<SearchResults />} />
       </Routes>
       <Footer />
     </div>

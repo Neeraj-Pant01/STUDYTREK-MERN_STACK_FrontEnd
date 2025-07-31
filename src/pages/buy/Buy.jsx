@@ -55,7 +55,7 @@ const Buy = () => {
           </div>
         ) : (
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+            <h1 className="text-4xl md:text-5xl font-bold text-center mb-5 text-gray-600">
               {course?.name}
             </h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

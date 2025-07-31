@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FiAlertCircle, FiBookOpen } from 'react-icons/fi';
+import CustomLoader from '../../components/CustomLoader';
 
 const Blog = () => {
   const [loading, setLoading] = useState(true);
@@ -38,15 +39,7 @@ const Blog = () => {
     <div className="min-h-screen bg-gradient-to-r from-[#f6f2fa] to-[#dceefe] py-12">
       <div className="container mx-auto px-4">
         {loading ? (
-          <div className="flex items-center justify-center min-h-[50vh]">
-            <div className="flex flex-col items-center gap-4">
-              <div className="relative">
-                <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-                <div className="absolute inset-0 animate-pulse rounded-full h-16 w-16 bg-gradient-to-r from-[#f1bb65] to-[#f2884a] opacity-30"></div>
-              </div>
-              <p className="text-gray-900 text-lg font-medium">Loading Blog...</p>
-            </div>
-          </div>
+          <CustomLoader loading='Loading blog...' />
         ) : blog ? (
           <div className=" mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
             <img
