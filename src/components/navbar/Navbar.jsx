@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import { FiSearch, FiBell, FiMessageSquare, FiMenu, FiX, FiLogOut, FiUser } from 'react-icons/fi';
-import { AiFillDashboard } from 'react-icons/ai';
+import { AiFillCloseSquare, AiFillDashboard } from 'react-icons/ai';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const user = true
+  const [showMenu, setShowMenu] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -68,17 +69,19 @@ const Navbar = () => {
             <FiMessageSquare size={22} />
           </button>
           <div className="relative group">
-            <button className="flex items-center gap-2">
-              <img
+            <button onClick={()=>setShowMenu(true)} className="flex items-center gap-2">
+              <img 
                 src={user?.avatar || '/assets/noavatar.png'}
                 alt="avatar"
                 className="md:h-10 md:w-10 h-7 w-7 rounded-full object-cover border-2 border-gradient-to-br from-[#f1bb65] to-[#f2884a] transition-transform duration-300 group-hover:scale-105"
               />
             </button>
             {/* Dropdown Menu */}
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300">
+            {showMenu &&
+            <div className="absolute hidden md:block right-0 mt-2 w-48 bg-white rounded-lg shadow-xl transition-all duration-300">
+              <AiFillCloseSquare className='text-[#f2884a] text-2xl ml-auto m-2 cursor-pointer hover:scale-110 transition-all' onClick={()=>setShowMenu(false)}/>
               <div className="py-2">
-                <p className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r from-[#f1bb65] to-[#f2884a] hover:text-white transition-colors duration-300">{user?.username || 'Guest'}</p>
+                <p className="flex items-center gap-2 px-4 py-2 text-gray-700 transition-colors duration-300">{user?.username || 'Guest'}</p>
                 {user ? (
                   <>
                     <Link to="/user/profile/1" className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r from-[#f1bb65] to-[#f2884a] hover:text-white transition-colors duration-300">
@@ -102,6 +105,7 @@ const Navbar = () => {
                 )}
               </div>
             </div>
+            }
           </div>
           <button className="md:hidden text-gray-900 hover:text-blue-600 transition-colors duration-300" onClick={toggleMenu}>
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
