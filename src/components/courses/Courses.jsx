@@ -74,7 +74,7 @@ const Courses = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#f6f2fa] to-[#dceefe] py-12">
       <div className=" mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center  text-gray-600">
+        <h1 className="text-4xl h-fit md:text-5xl font-bold text-center  text-gray-600">
           Explore Our Courses
         </h1>
 
