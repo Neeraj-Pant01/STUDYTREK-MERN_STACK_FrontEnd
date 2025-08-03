@@ -137,8 +137,11 @@ const Navbar = () => {
             </Link>
             {user ? (
               <>
-                <Link to="/profile" className="text-white font-medium text-lg hover:text-blue-300 transition-colors duration-300" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/user/profile/1" className="text-white font-medium text-lg hover:text-blue-300 transition-colors duration-300" onClick={() => setIsMenuOpen(false)}>
                   Profile
+                </Link>
+                <Link to="/seller/dashboard" className="text-white font-medium text-lg hover:text-blue-300 transition-colors duration-300" onClick={() => setIsMenuOpen(false)}>
+                  Dashboard
                 </Link>
                 <button onClick={logout} className="text-white font-medium text-lg hover:text-red-300 text-left transition-colors duration-300">
                   Logout
