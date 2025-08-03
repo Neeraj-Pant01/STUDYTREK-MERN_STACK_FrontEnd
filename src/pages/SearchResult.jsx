@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { FiSearch, FiBookOpen, FiVideo, FiAlertCircle } from 'react-icons/fi';
+import {FiBookOpen, FiVideo, FiAlertCircle } from 'react-icons/fi';
 import CustomLoader from '../components/CustomLoader';
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q')?.toLowerCase() || '';
-  const [searchQuery, setSearchQuery] = useState(query);
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
 
@@ -62,46 +61,12 @@ const SearchResults = () => {
     return () => clearTimeout(timer);
   }, [query]);
 
-  // Handle search input change
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  // Handle search submission
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    // Update URL with new query
-    window.history.pushState({}, '', `/search?q=${encodeURIComponent(searchQuery)}`);
-    // Trigger re-render with new query
-    window.location.search = `?q=${encodeURIComponent(searchQuery)}`;
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#e6d1ff] to-[#a3d4ff] py-12">
+    <div className="min-h-screen bg-gradient-to-r from-[#f6f2fa] to-[#dceefe] py-12">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-600">
           Search Results
         </h1>
-
-        {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-12">
-          <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 bg-white rounded-lg shadow-lg p-2">
-            <FiSearch className="text-gray-600 ml-2" size={24} />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              placeholder="Search for courses, lectures, and more..."
-              className="w-full p-2 text-gray-900 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition duration-300"
-            >
-              Search
-            </button>
-          </form>
-        </div>
 
         {loading ? (
           <CustomLoader />
