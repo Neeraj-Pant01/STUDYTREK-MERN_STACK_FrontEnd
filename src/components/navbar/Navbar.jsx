@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { FiSearch, FiBell, FiMessageSquare, FiMenu, FiX, FiLogOut, FiUser } from 'react-icons/fi';
+import { AiFillDashboard } from 'react-icons/ai';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user.currentUser);
+  const user = true
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -77,12 +78,16 @@ const Navbar = () => {
             {/* Dropdown Menu */}
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300">
               <div className="py-2">
-                <p className="px-4 py-2 text-gray-700 font-medium">{user?.username || 'Guest'}</p>
+                <p className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r from-[#f1bb65] to-[#f2884a] hover:text-white transition-colors duration-300">{user?.username || 'Guest'}</p>
                 {user ? (
                   <>
-                    <Link to="/profile" className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r from-[#f1bb65] to-[#f2884a] hover:text-white transition-colors duration-300">
+                    <Link to="/user/profile/1" className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r from-[#f1bb65] to-[#f2884a] hover:text-white transition-colors duration-300">
                       <FiUser size={18} />
                       Profile
+                    </Link>
+                    <Link to="/seller/dashboard" className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r from-[#f1bb65] to-[#f2884a] hover:text-white transition-colors duration-300">
+                      <AiFillDashboard size={18} />
+                      Dashboard
                     </Link>
                     <button onClick={logout} className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r from-[#f1bb65] to-[#f2884a] hover:text-white transition-colors duration-300 w-full text-left">
                       <FiLogOut size={18} />
@@ -110,7 +115,7 @@ const Navbar = () => {
           <div className="flex flex-col gap-4">
             {/* Mobile Search Bar */}
             <div className="flex items-center bg-white rounded-full px-4 py-2 shadow-md mb-4">
-              <FiSearch onClick={handleSearch}  className="text-gray-600 mr-2" size={20} />
+              <FiSearch onClick={handleSearch} className="text-gray-600 mr-2" size={20} />
               <input
                 type="text"
                 placeholder="Search courses..."
