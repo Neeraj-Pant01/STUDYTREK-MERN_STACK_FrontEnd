@@ -11,11 +11,11 @@ import Blogs from "./pages/blogs/Blogs";
 import Notes from "./pages/notes/Notes";
 import ApplicationForm from "./pages/applicationform/ApplicationForm";
 import Footer from "./components/footer/Footer";
-import { useSelector } from "react-redux";
 import Blog from "./pages/blog/Blog";
 import YourCourses from "./pages/yourCourses/YourCourses";
 import Profile from "./pages/Profile";
 import SearchResults from "./pages/SearchResult";
+import SellerDashboard from "./pages/Dashboard";
 
 function App() {
   // const user = useSelector((state)=>state.user.currentUser)
@@ -39,6 +39,7 @@ function App() {
         <Route path="/applicationform" element={user ?<ApplicationForm  /> : <Navigate to={'/'} />} />
         <Route path="/yourcourse" element={<YourCourses />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/seller/dashboard" element={<SellerDashboard />} />
       </Routes>
       <Footer />
     </div>
