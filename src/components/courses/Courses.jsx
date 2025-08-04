@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { FiAlertCircle } from 'react-icons/fi';
 import Course from '../course/Course';
 import CustomLoader from '../CustomLoader';
+import Paginate from '../Paginate';
 // import Course from '../course/Course';
 
 const dummyCourses = [
@@ -100,6 +101,9 @@ const Courses = () => {
             ))}
           </div>
         )}
+      </div>
+      <div className='md:mt-6 mt-4'>
+      <Paginate />
       </div>
     </div>
   );

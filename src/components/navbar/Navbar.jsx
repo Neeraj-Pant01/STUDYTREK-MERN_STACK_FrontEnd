@@ -79,9 +79,9 @@ const Navbar = () => {
             {/* Dropdown Menu */}
             {showMenu &&
             <div className="absolute hidden md:block right-0 mt-2 w-48 bg-white rounded-lg shadow-xl transition-all duration-300">
-              <AiFillCloseSquare className='text-[#f2884a] text-2xl ml-auto m-2 cursor-pointer hover:scale-110 transition-all' onClick={()=>setShowMenu(false)}/>
+              <AiFillCloseSquare className='text-[#f2884a] text-2xl ml-auto mr-2 cursor-pointer hover:scale-110 transition-all' onClick={()=>setShowMenu(false)}/>
               <div className="py-2">
-                <p className="flex items-center gap-2 px-4 py-2 text-gray-700 transition-colors duration-300">{user?.username || 'Guest'}</p>
+                {/* <p className="flex items-center gap-2 px-4 py-2 text-gray-700 transition-colors duration-300">{user?.username || 'Guest'}</p> */}
                 {user ? (
                   <>
                     <Link to="/user/profile/1" className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r from-[#f1bb65] to-[#f2884a] hover:text-white transition-colors duration-300">
